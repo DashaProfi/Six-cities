@@ -6,8 +6,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+const Settings = {
+  RENTAL_COUNT: 352,
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App rentalCount={Settings.RENTAL_COUNT}/>
   </React.StrictMode>,
 );
