@@ -4,15 +4,10 @@ import App from './components/app/app';
 import { offers } from './mocks/offers';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
+  document.getElementById('root') as HTMLElement
 );
-
-const Settings = {
-  RENTAL_COUNT: 352,
-};
-
 root.render(
   <React.StrictMode>
-    <App rentalCount={Settings.RENTAL_COUNT} offers={offers} />
+    <App offers={offers} oneOffer={offers[1]} />
   </React.StrictMode>
 );

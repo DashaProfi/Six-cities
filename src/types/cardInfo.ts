@@ -36,3 +36,8 @@ export type CardOneType = {
 };
 
 export type CardListType = CardOneType[];
+
+export type OneCityType = {
+  city: string;
+  active: boolean;
+};

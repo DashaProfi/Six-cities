@@ -1,5 +1,5 @@
-import { Reviews } from '../types/reviews';
-export const reviews: Reviews = [
+import { ReviewsListType } from '../types/reviews';
+export const reviews: ReviewsListType = [
   {
     comment:
       '1 A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',

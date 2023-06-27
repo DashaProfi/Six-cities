@@ -15,9 +15,13 @@ function Card({ cardOne, onMouseEnter, onMouseLeave }: CardProps): JSX.Element {
       onMouseLeave={onMouseLeave}
       data-id={cardOne.id}
     >
-      <div className='place-card__mark'>
-        <span>Premium</span>
-      </div>
+      {cardOne.isPremium ? (
+        <div className='place-card__mark'>
+          <span>Premium</span>
+        </div>
+      ) : (
+        ''
+      )}
       <div className='cities__image-wrapper place-card__image-wrapper'>
         <Link to={`/offers/${cardOne.id}`}>
           <img
