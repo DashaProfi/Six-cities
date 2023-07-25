@@ -1,11 +1,11 @@
+import { useDispatch } from 'react-redux';
 import { CITY_LIST } from '../const';
+import { Dispatch } from '@reduxjs/toolkit';
+import { changeCity } from '../../store/offers_slice';
 
-type CityListProps = {
-  city: string;
-  onClickCity: (city: string) => void;
-};
+function CityList(): JSX.Element {
+  const dispatch: Dispatch = useDispatch();
 
-function CityList({ onClickCity }: CityListProps): JSX.Element {
   return (
     <section className='locations container'>
       <ul className='locations__list tabs__list'>
@@ -15,7 +15,7 @@ function CityList({ onClickCity }: CityListProps): JSX.Element {
               key={item.city}
               className='locations__item'
               onClick={(evt) => {
-                onClickCity(item.city);
+                dispatch(changeCity(item.city));
               }}
             >
               <a

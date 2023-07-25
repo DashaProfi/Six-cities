@@ -3,10 +3,11 @@ import { OneCityType } from '../types/cardInfo';
 export const URL_MARKER_DEFAULT = 'img/pin.svg';
 export const URL_MARKER_CURRENT = 'img/pin-active.svg';
 
+export const DEFAULT_CITY = 'Amsterdam';
+
 export const CITY_LIST: OneCityType[] = [
   { city: 'Paris', active: false },
   { city: 'Cologne', active: false },
-  { city: 'Paris', active: false },
   { city: 'Brussels', active: false },
   { city: 'Amsterdam', active: false },
   { city: 'Hamburg', active: false },

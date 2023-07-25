@@ -41,3 +41,8 @@ export type OneCityType = {
   city: string;
   active: boolean;
 };
+export interface OffersState {
+  city: OneCityType;
+  offers: CardListType;
+}
+
