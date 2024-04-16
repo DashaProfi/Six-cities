@@ -1,12 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { AppDispatch, AppState } from '../../types/store';
 import { useSelector } from 'react-redux';
-import { getUserInfo, setUserLogin } from '../../store/user-slice';
+import { setUserLogin } from '../../store/user-slice';
 import { FormEvent, useState } from 'react';
 import { AuthorizationStatus } from '../../const/api-const';
 import { AppRoute } from '../../const/const';
 import { Navigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import { ErrorPasswordMessage } from '../../components/error-message/error-password-message';
 const regExp = /((?=.*[a-zа-яA-ZА-Я])(?=.*\d))/;
 
