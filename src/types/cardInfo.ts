@@ -1,3 +1,4 @@
+import { AuthorizationStatus } from '../const/api-const';
 export type LocationType = {
   latitude: number;
   longitude: number;
@@ -7,7 +8,10 @@ export type LocationType = {
 export type CityType = {
   location: LocationType;
   name: string;
+  active: boolean;
 };
+
+export type CityNames = string[];
 
 export type HostType = {
   avatarUrl: string;
@@ -22,7 +26,7 @@ export type CardOneType = {
   description: string;
   goods: string[];
   host: HostType;
-  id: number;
+  id: string;
   images: string[];
   isFavorite: boolean;
   isPremium: boolean;
@@ -37,12 +41,18 @@ export type CardOneType = {
 
 export type CardListType = CardOneType[];
 
-export type OneCityType = {
-  city: string;
-  active: boolean;
-};
 export interface OffersState {
-  city: OneCityType;
-  offers: CardListType;
+  city: CityType;
+  offersOneCity: CardListType;
+  allOffers: CardListType;
+  oneOffer: CardOneType | null;
+  sortItem: string;
+  loadingStatus: string;
+  error: any;
 }
 
+export type OfferId = string;
+
+export interface FavoritesState {
+  favoritesOffers: CardListType;
+}

@@ -12,3 +12,22 @@ export type ReviewType = {
 };
 
 export type ReviewsListType = ReviewType[];
+
+export interface CommentsState {
+  comments: ReviewsListType;
+  errorMessage: string;
+  sendStatus: SendStatus;
+}
+
+export interface OneComment {
+  comment: string;
+  rating: number;
+}
+
+export enum SendStatus {
+  Pending = 'pending',
+  Fulfilled = 'fulfilled',
+  Rejected = 'rejected',
+  Unknown = 'unknown',
+}
+

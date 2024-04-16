@@ -1,13 +1,13 @@
 import { useRef, useEffect } from 'react';
 import { CardListType, CardOneType, CityType } from '../../types/cardInfo';
-import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../const';
+import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../../const/const';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
 
 type MapProps = {
   city: CityType;
-  cardInfo: CardListType;
+  offersOneCity: CardListType;
   selectedPoint: CardOneType | undefined;
   classIn: string;
   styleIn: {
@@ -32,7 +32,7 @@ const currentCustomIcon = new Icon({
 
 function Map({
   city,
-  cardInfo,
+  offersOneCity,
   classIn,
   styleIn,
   selectedPoint,
@@ -43,7 +43,7 @@ function Map({
 
   useEffect(() => {
     if (map) {
-      cardInfo.forEach((item) => {
+      offersOneCity.forEach((item) => {
         const marker = new Marker({
           lat: item.location.latitude,
           lng: item.location.longitude,
@@ -54,14 +54,16 @@ function Map({
             ? currentCustomIcon
             : defaultCustomIcon
         );
+
         markersLayer.addLayer(marker);
       });
+
       markersLayer.addTo(map);
       return () => {
         markersLayer.clearLayers();
       };
     }
-  }, [map, cardInfo, selectedPoint]);
+  }, [map, offersOneCity, selectedPoint]);
 
   return <section className={classIn} style={styleIn} ref={mapRef}></section>;
 }

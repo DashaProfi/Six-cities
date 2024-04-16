@@ -15,8 +15,6 @@ function useMap(mapRef: MutableRefObject<HTMLElement | null>, city: CityType) {
         zoom: city.location.zoom,
       });
 
-      console.log('instance', instance);
-
       leaflet
         .tileLayer(
           'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
@@ -28,6 +26,11 @@ function useMap(mapRef: MutableRefObject<HTMLElement | null>, city: CityType) {
         .addTo(instance);
 
       setMap(instance);
+    } else {
+      map?.setView(
+        [city.location.latitude, city.location.longitude],
+        city.location.zoom
+      );
     }
   }, [mapRef, map, city]);
 

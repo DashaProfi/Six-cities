@@ -1,10 +1,10 @@
 import { ReviewsListType } from '../../types/reviews';
 import ReviewsItem from '../reviews-item/reviews-item';
 export interface ReviewsListProps {
-  reviewsList: ReviewsListType;
+  comments: ReviewsListType;
 }
-function ReviewsList({ reviewsList }: ReviewsListProps): JSX.Element {
-  const sortReviewsList = [...reviewsList]
+function ReviewsList({ comments }: ReviewsListProps): JSX.Element {
+  const sortReviewsList = [...comments]
     .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
     .slice(0, 10);
 
@@ -12,11 +12,11 @@ function ReviewsList({ reviewsList }: ReviewsListProps): JSX.Element {
     <>
       <h2 className='reviews__title'>
         Reviews &middot;{' '}
-        <span className='reviews__amount'>{reviewsList.length}</span>
+        <span className='reviews__amount'>{comments.length}</span>
       </h2>
       <ul className='reviews__list'>
-        {sortReviewsList.map((oneReview) => (
-          <ReviewsItem key={oneReview.id} oneReview={oneReview} />
+        {sortReviewsList.map((oneComment) => (
+          <ReviewsItem key={oneComment.id} oneComment={oneComment} />
         ))}
       </ul>
     </>

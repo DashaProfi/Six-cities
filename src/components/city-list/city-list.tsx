@@ -1,30 +1,32 @@
 import { useDispatch } from 'react-redux';
-import { CITY_LIST } from '../const';
-import { Dispatch } from '@reduxjs/toolkit';
-import { changeCity } from '../../store/offers_slice';
+import { CITY_LIST } from '../../const/const';
+import { changeCity } from '../../store/offers-slice';
+import { useSelector } from 'react-redux';
+import { AppDispatch, AppState } from '../../types/store';
 
 function CityList(): JSX.Element {
-  const dispatch: Dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
+  const { city } = useSelector((state: AppState) => state.offers);
 
   return (
     <section className='locations container'>
       <ul className='locations__list tabs__list'>
         {CITY_LIST.length &&
-          CITY_LIST.map((item) => (
+          CITY_LIST.map((oneCity) => (
             <li
-              key={item.city}
+              key={oneCity}
               className='locations__item'
               onClick={(evt) => {
-                dispatch(changeCity(item.city));
+                dispatch(changeCity(oneCity));
               }}
             >
               <a
                 className={`locations__item-link tabs__item ${
-                  item.active ? 'tabs__item--active' : ''
+                  oneCity === city.name ? 'tabs__item--active' : ''
                 }`}
                 href='#'
               >
-                <span>{item.city}</span>
+                <span>{oneCity}</span>
               </a>
             </li>
           ))}
